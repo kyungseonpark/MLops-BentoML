@@ -1,0 +1,12 @@
+version: "3.4"
+services:
+  bentoml:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "${BENTOML_PORT}:22124"
+    volumes:
+      - ${LOCAL_BENTO_HOME}:/bentoml
+    restart: on-failure
+    tty: true
